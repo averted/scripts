@@ -2,8 +2,7 @@
 # OSX initialization script
 
 # keyboard settings
-# defaults write -g InitialKeyRepeat -int 11 # (normal - 15)
-# defaults write -g KeyRepeat -int 2 # (normal - 2)
+./setup.sh
 
 # fetch git dotfiles repo
 mkdir -p ~/git
