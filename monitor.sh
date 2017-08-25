@@ -1,4 +1,0 @@
-#!/bin/bash
-# Monitor TCP connections
-
-~/.scripts/watch.sh 'netstat -nvp tcp' 1

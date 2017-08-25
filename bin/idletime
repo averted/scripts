@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# time in seconds
+time=1800
+
+if [ $# -gt 0 ]; then
+  if [ $1 -lt 61 ]; then
+    time=$(($1*60))
+  fi
+fi
+
+echo "New idleTime: $time"
+defaults -currentHost write com.apple.screensaver idleTime $time
