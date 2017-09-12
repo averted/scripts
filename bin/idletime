@@ -11,3 +11,4 @@ fi
 
 echo "New idleTime: $time"
 defaults -currentHost write com.apple.screensaver idleTime $time
+exit 0
