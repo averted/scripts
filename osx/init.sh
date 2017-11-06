@@ -37,4 +37,8 @@ if cp -n ~/git/dotfiles/.gitconfig ~; then
   echo - Dont forget to set email in .gitconfig!
 fi
 
+# disable npm package lock globally
+echo "Disable npm package-lock"
+npm config set package-lock false
+
 exit 0
