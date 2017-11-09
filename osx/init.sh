@@ -52,6 +52,10 @@ tic -o $HOME/.terminfo ~/git/dotfiles/.terminfo/tmux.terminfo
 tic -o $HOME/.terminfo ~/git/dotfiles/.terminfo/tmux-256color.terminfo
 tic -o $HOME/.terminfo ~/git/dotfiles/.terminfo/xterm-256color.terminfo
 
+# add symbolic ln for scripts to home dir
+echo "Adding sym link for scripts"
+ln -s ~/git/scripts ~/scripts
+
 # disable npm package lock globally
 echo "Disable npm package-lock"
 if [ -x "$(command -v npm)" ]; then
