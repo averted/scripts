@@ -34,11 +34,30 @@ sudo cp -n ~/git/walls/* /Library/Desktop\ Pictures/
 # sync .gitconfig
 echo "Syncing: .gitconfig"
 if cp -n ~/git/dotfiles/.gitconfig ~; then
-  echo - Dont forget to set email in .gitconfig!
+  echo "- Dont forget to set email in .gitconfig!"
 fi
+
+# add git prompt script
+echo "Creating dir: /usr/local/git/contrib/completion"
+sudo mkdir -p /usr/local/git/contrib/completion
+echo "Downloading: git-prompt.sh"
+cd /usr/local/git/contrib/completion
+sudo curl -O https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+cd ~/git
+
+# add italics to vim
+echo "Adding italics support to vim"
+mkdir ~/.terminfo
+tic -o $HOME/.terminfo ~/git/dotfiles/.terminfo/tmux.terminfo
+tic -o $HOME/.terminfo ~/git/dotfiles/.terminfo/tmux-256color.terminfo
+tic -o $HOME/.terminfo ~/git/dotfiles/.terminfo/xterm-256color.terminfo
 
 # disable npm package lock globally
 echo "Disable npm package-lock"
-npm config set package-lock false
+if [ -x "$(command -v npm)" ]; then
+  npm config set package-lock false
+else
+  echo "-- [Error]: npm command doesn't exist - Install Node.js: https://nodejs.org/en/"
+fi
 
 exit 0
