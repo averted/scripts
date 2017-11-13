@@ -19,6 +19,14 @@ cp -Rn ~/git/dotfiles/.vim ~
 echo "Syncing: .vimrc"
 cp -n ~/git/dotfiles/.vimrc ~
 
+# sync vim bundles
+echo "Syncing: vim bundles"
+git clone https://github.com/kien/ctrlp.vim.git ~/.vim/bundle/vim-ctrlp
+git clone git://github.com/flowtype/vim-flow.git ~/.vim/bundle/vim-flow
+git clone https://github.com/fatih/vim-go.git ~/.vim/bundle/vim-go
+git clone git@github.com:averted/vim-javascript.git ~/.vim/bundle/vim-javascript
+git clone git@github.com:elzr/vim-json.git ~/.vim/bundle/vim-json
+
 # sync .bash_profile
 echo "Syncing: .bash_profile"
 cp -n ~/git/dotfiles/.bash_profile ~
