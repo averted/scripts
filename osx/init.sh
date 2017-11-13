@@ -46,22 +46,29 @@ sudo curl -O https://raw.githubusercontent.com/git/git/master/contrib/completion
 cd ~/git
 
 # add italics to vim
-echo "Adding italics support to vim"
+echo "Adding: Vim italics support"
 mkdir ~/.terminfo
 tic -o $HOME/.terminfo ~/git/dotfiles/.terminfo/tmux.terminfo
 tic -o $HOME/.terminfo ~/git/dotfiles/.terminfo/tmux-256color.terminfo
 tic -o $HOME/.terminfo ~/git/dotfiles/.terminfo/xterm-256color.terminfo
 
 # add symbolic ln for scripts to home dir
-echo "Adding sym link for scripts"
+echo "Adding: Symbolic scripts link"
 ln -s ~/git/scripts ~/scripts
 
 # disable npm package lock globally
-echo "Disable npm package-lock"
+echo "Config: Disable npm package-lock"
 if [ -x "$(command -v npm)" ]; then
   npm config set package-lock false
 else
   echo "-- [Error]: npm command doesn't exist - Install Node.js: https://nodejs.org/en/"
+  command open -a Safari https://nodejs.org/en/
+fi
+
+# disable npm package lock globally
+echo "Installing: golang"
+if [ ! -x "$(command -v go)" ]; then
+  command open -a Safari https://golang.org/dl/
 fi
 
 exit 0
