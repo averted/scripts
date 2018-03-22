@@ -4,6 +4,10 @@
 # keyboard settings
 ./setup.sh
 
+# install xcode dev tools to use git
+echo "Installing xcode dev tools.."
+xcode-select --install
+
 # fetch git dotfiles repo
 mkdir -p ~/git
 cd ~/git
@@ -73,7 +77,7 @@ else
   command open -a Safari https://nodejs.org/en/
 fi
 
-# disable npm package lock globally
+# golang
 echo "Installing: golang"
 if [ ! -x "$(command -v go)" ]; then
   command open -a Safari https://golang.org/dl/
