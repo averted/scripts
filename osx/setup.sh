@@ -1,4 +1,4 @@
-defaults write NSGlobalDomain InitialKeyRepeat -int 12 # 12 ninja
+defaults write NSGlobalDomain InitialKeyRepeat -int 10 # 12 ninja
 defaults write NSGlobalDomain KeyRepeat -int 2
 
 # disable headphones buttons opening iTunes
