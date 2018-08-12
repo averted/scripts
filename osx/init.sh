@@ -69,9 +69,28 @@ echo "Adding: Symbolic scripts link"
 ln -s ~/git/scripts ~/scripts
 
 # disable npm package lock globally
-echo "Config: Disable npm package-lock"
+echo "NPM Config: Disable npm package-lock"
 if [ -x "$(command -v npm)" ]; then
   npm config set package-lock false
+else
+  echo "-- [Error]: npm command doesn't exist - Install Node.js: https://nodejs.org/en/"
+  command open -a Safari https://nodejs.org/en/
+fi
+
+# install npm global packages
+echo "NPM Global Packages"
+if [ -x "$(command -v npm)" ]; then
+  echo "-- Installing: react-native-cli"
+  sudo npm install -g react-native-cli
+
+  echo "-- Installing: n (nvm)"
+  sudo npm install -g n
+
+  # echo "-- Installing: yarn"
+  # sudo npm install -g yarn
+
+  echo "-- Installing: flow-bin"
+  sudo npm install -g flow-bin
 else
   echo "-- [Error]: npm command doesn't exist - Install Node.js: https://nodejs.org/en/"
   command open -a Safari https://nodejs.org/en/
