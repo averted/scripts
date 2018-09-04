@@ -12,8 +12,8 @@ xcode-select --install
 mkdir -p ~/git
 cd ~/git
 
-git clone git@github.com:averted/dotfiles.git
-git clone git@github.com:averted/walls.git
+git clone https://github.com/averted/dotfiles.git
+git clone https://github.com/averted/walls.git
 
 # sync .vim
 echo "Syncing: .vim"
@@ -26,10 +26,9 @@ cp -n ~/git/dotfiles/.vimrc ~
 # sync vim bundles
 echo "Syncing: vim bundles"
 git clone https://github.com/kien/ctrlp.vim.git ~/.vim/bundle/vim-ctrlp
-git clone git://github.com/flowtype/vim-flow.git ~/.vim/bundle/vim-flow
 git clone https://github.com/fatih/vim-go.git ~/.vim/bundle/vim-go
-git clone git@github.com:averted/vim-javascript.git ~/.vim/bundle/vim-javascript
-git clone git@github.com:elzr/vim-json.git ~/.vim/bundle/vim-json
+git clone https://github.com/averted/vim-javascript.git ~/.vim/bundle/vim-javascript
+git clone https://github.com/elzr/vim-json.git ~/.vim/bundle/vim-json
 
 # sync .bash_profile
 echo "Syncing: .bash_profile"
