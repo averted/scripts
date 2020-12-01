@@ -1,8 +1,11 @@
 #!/bin/bash
 # OSX initialization script
 
+# set default shell to bash
+chsh -s /bin/bash
+
 # keyboard settings
-./setup.sh
+./keyboard.sh
 
 # install xcode dev tools to use git
 echo "Installing xcode dev tools.."
@@ -13,7 +16,7 @@ mkdir -p ~/git
 cd ~/git
 
 git clone https://github.com/averted/dotfiles.git
-git clone https://github.com/averted/walls.git
+git clone git@github.com:averted/walls.git
 
 # sync .vim
 echo "Syncing: .vim"
@@ -55,6 +58,11 @@ echo "Downloading: git-prompt.sh"
 cd /usr/local/git/contrib/completion
 sudo curl -O https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
 cd ~/git
+
+# download Hack font
+echo "Downloading Hack font v3.003 (TODO: check for updated version!)"
+cd $HOME/Downloads
+sudo curl -O https://github.com/source-foundry/Hack/releases/download/v3.003/Hack-v3.003-ttf.zip
 
 # add italics to vim
 echo "Adding: Vim italics support"
