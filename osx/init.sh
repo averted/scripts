@@ -16,7 +16,6 @@ mkdir -p ~/git
 cd ~/git
 
 git clone https://github.com/averted/dotfiles.git
-git clone git@github.com:averted/walls.git
 
 # sync .vim
 echo "Syncing: .vim"
@@ -41,10 +40,6 @@ cp -n ~/git/dotfiles/.bash_profile ~
 echo "Syncing: .bashrc"
 cp -n ~/git/dotfiles/.bashrc ~
 
-# sync walls
-echo "Syncing: Desktop Pictures"
-sudo cp -n ~/git/walls/* /Library/Desktop\ Pictures/
-
 # sync .gitconfig
 echo "Syncing: .gitconfig"
 if cp -n ~/git/dotfiles/.gitconfig ~; then
@@ -64,6 +59,25 @@ echo "Downloading Hack font v3.003 (TODO: check for updated version!)"
 cd $HOME/Downloads
 sudo curl -O https://github.com/source-foundry/Hack/releases/download/v3.003/Hack-v3.003-ttf.zip
 
+# download Firefox
+echo "Downloading: Firefox"
+cd $HOME/Downloads
+command open -a Safari https://www.mozilla.org/en-US/firefox/new/
+
+# download f.lux
+echo "Downloading: f.lux"
+cd $HOME/Downloads
+sudo curl -O https://macflux.b-cdn.net/Flux.zip
+
+# download Postgres
+echo "Downloading: Postgres"
+cd $HOME/Downloads
+sudo curl -O https://github.com/PostgresApp/PostgresApp/releases/download/v2.6.7/Postgres-2.6.7-16.dmg
+
+# download Kitty / Wez ?
+echo "Downloading: kitty"
+command open -a Safari https://github.com/kovidgoyal/kitty/releases
+
 # add italics to vim
 echo "Adding: Vim italics support"
 mkdir ~/.terminfo
@@ -75,38 +89,33 @@ tic -o $HOME/.terminfo ~/git/dotfiles/.terminfo/xterm-256color.terminfo
 echo "Adding: Symbolic scripts link"
 ln -s ~/git/scripts ~/scripts
 
-# disable npm package lock globally
+# disable npm package-lock globally
 echo "NPM Config: Disable npm package-lock"
 if [ -x "$(command -v npm)" ]; then
   npm config set package-lock false
 else
-  echo "-- [Error]: npm command doesn't exist - Install Node.js: https://nodejs.org/en/"
+  echo "-- [Error]: npm doesn't exist - Install Node.js: https://nodejs.org/en/"
   command open -a Safari https://nodejs.org/en/
 fi
 
 # install npm global packages
 echo "NPM Global Packages"
 if [ -x "$(command -v npm)" ]; then
-  echo "-- Installing: react-native-cli"
-  sudo npm install -g react-native-cli
+  # echo "-- Installing: react-native-cli"
+  # sudo npm install -g react-native-cli
 
   echo "-- Installing: n (nvm)"
   sudo npm install -g n
 
-  # echo "-- Installing: yarn"
-  # sudo npm install -g yarn
-
-  echo "-- Installing: flow-bin"
-  sudo npm install -g flow-bin
+  echo "-- Installing: yarn"
+  sudo npm install -g yarn
 else
-  echo "-- [Error]: npm command doesn't exist - Install Node.js: https://nodejs.org/en/"
+  echo "-- [Error]: npm doesn't exist - Install Node.js: https://nodejs.org/en/"
   command open -a Safari https://nodejs.org/en/
 fi
 
-# golang
-echo "Installing: golang"
-if [ ! -x "$(command -v go)" ]; then
-  command open -a Safari https://golang.org/dl/
-fi
+# Rust
+echo "Installing: rust"
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 exit 0
