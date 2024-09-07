@@ -4,6 +4,9 @@ defaults write NSGlobalDomain KeyRepeat -int 1
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 defaults write -g ApplePressAndHoldEnabled -bool false
 
+# Disable .DS_Store
+defaults write com.apple.desktopservices DSDontWriteNetworkStores true
+
 # remap "Right CMD" and "Caps Lock" key to be Ctrl
 hidutil property --set '
 {"UserKeyMapping":
