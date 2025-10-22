@@ -4,8 +4,15 @@
 # set default shell to bash
 chsh -s /bin/bash
 
+# stabilize hostnames
+scutil --set HostName av
+scutil --set LocalHostName av
+
 # keyboard settings
 ./keyboard.sh
+
+# update LaunchAgent to always run ./keyboard.sh on startup
+cp ./com.keyboard.login.plist ~/Library/LaunchAgents/
 
 # install xcode dev tools to use git
 echo "Installing xcode dev tools.."
@@ -16,21 +23,6 @@ mkdir -p ~/git
 cd ~/git
 
 git clone https://github.com/averted/dotfiles.git
-
-# sync .vim
-echo "Syncing: .vim"
-cp -Rn ~/git/dotfiles/.vim ~
-
-# sync .vimrc
-echo "Syncing: .vimrc"
-cp -n ~/git/dotfiles/.vimrc ~
-
-# sync vim bundles
-echo "Syncing: vim bundles"
-git clone https://github.com/kien/ctrlp.vim.git ~/.vim/bundle/vim-ctrlp
-git clone https://github.com/fatih/vim-go.git ~/.vim/bundle/vim-go
-git clone https://github.com/averted/vim-javascript.git ~/.vim/bundle/vim-javascript
-git clone https://github.com/elzr/vim-json.git ~/.vim/bundle/vim-json
 
 # sync .bash_profile
 echo "Syncing: .bash_profile"
