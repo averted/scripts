@@ -1,5 +1,6 @@
 #!/bin/bash
 # OSX initialization script
+# curl -sSL https://raw.githubusercontent.com/averted/scripts/refs/heads/master/osx/init.sh | bash
 
 # set default shell to bash
 chsh -s /bin/bash
