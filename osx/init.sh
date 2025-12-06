@@ -56,19 +56,14 @@ echo "Downloading: Firefox"
 cd $HOME/Downloads
 command open -a Safari https://www.mozilla.org/en-US/firefox/new/
 
-# download f.lux
-echo "Downloading: f.lux"
-cd $HOME/Downloads
-sudo curl -O https://macflux.b-cdn.net/Flux.zip
-
 # download Postgres
 echo "Downloading: Postgres"
 cd $HOME/Downloads
 sudo curl -O https://github.com/PostgresApp/PostgresApp/releases/download/v2.6.7/Postgres-2.6.7-16.dmg
 
-# download Kitty / Wez ?
-echo "Downloading: kitty"
-command open -a Safari https://github.com/kovidgoyal/kitty/releases
+# download Ghostty
+echo "Downloading: ghostty"
+command open -a Safari https://ghostty.org/download
 
 # add italics to vim
 echo "Adding: Vim italics support"
