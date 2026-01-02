@@ -13,7 +13,7 @@ scutil --set LocalHostName av
 ./keyboard.sh
 
 # update LaunchAgent to always run ./keyboard.sh on startup
-cp ./com.keyboard.login.plist ~/Library/LaunchAgents/
+sudo cp ./com.keyboard.login.plist /Library/LaunchAgents/
 
 # install xcode dev tools to use git
 echo "Installing xcode dev tools.."
